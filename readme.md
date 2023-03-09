@@ -1,11 +1,11 @@
 # Quotes
 
-this project accomplishes two main goals:
-1. **replete a postgres database with randomized quotes**. it does so by using the [favqs](https://favqs.com/) api.
-2. **provide a CRUD api for the repleted database.** the api follows REST principles.
+#### this project accomplishes two main goals:
+1. **replete** a postgres **database with randomized quotes**. it does so by using the [favqs](https://favqs.com/) api.
+2. **provide** a CRUD **api for** the **repleted database.** the api follows REST principles.
 
-breakdown of directories:
-1. `database` 
+#### breakdown of directories:
+1. `database/` 
     - `setup/create.sql`: file to create tables
-    - `generate.mjs`: script to replete tables (requires a `.env` file with connection information)
-2. `api`: the api for repleted databases (written in `php`. meant to run in `apache`.)
+    - `generate.mjs`: script to replete tables (requires a `.env` file with database connection information)
+2. `api/`: holds the api for repleted databases (written in `php`. meant to run in `apache`.)
