@@ -109,7 +109,7 @@ async function batch(amount) {
     return count
 }
 
-/* generate twenty-five entries. */
+/* generate 'amount' entries. */
 
 const amount = 30
 
