@@ -101,7 +101,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "category could not be updated"]);
+                    return encode(["message" => "author_id not found"]);
 
                 return "updated author (" . $result["id"] . ", " . $result["author"] . ")";
             }
@@ -126,7 +126,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "author could not be deleted"]);
+                    return encode(["message" => "author_id not found"]);
 
                 return encode($result);
             }

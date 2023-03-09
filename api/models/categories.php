@@ -101,7 +101,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "category could not be updated"]);
+                    return encode(["message" => "category_id not found"]);
 
                 return encode($result);
             }
@@ -126,7 +126,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "category could not be deleted"]);
+                    return encode(["message" => "category_id not found"]);
 
                 return encode($result);
             }
