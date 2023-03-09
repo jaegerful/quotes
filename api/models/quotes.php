@@ -167,12 +167,12 @@
                 
                 /* if only 'category_id' wrong. */
 
-                if (!$tests["category_id"] && $tests["author_id"])
+                if (!$tests["category_id"])
                     return encode(["message" => "category_id not found"]);
                 
                 /* if only 'author_id' wrong. */
 
-                if (!$tests["author_id"] && $tests["category_id"])
+                if (!$tests["author_id"])
                     return encode(["message" => "author_id not found"]);
             }
         }
