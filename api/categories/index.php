@@ -1,8 +1,4 @@
 <?php
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     /* response headers. */
 
     header("Access-Control-Allow-Origin: *");
@@ -74,9 +70,9 @@
 
     if ($method === "PUT") {
 
-        /* if request does not provide identifier and new name for category. */
+        /* if request does not provide new name for category. */
         
-        if (!array_key_exists("id", $body) || !array_key_exists("category", $body)) {
+        if (!array_key_exists("category", $body)) {
             $result = encode(["message" => "missing required parameters"]);
             echo $result;
             exit();
