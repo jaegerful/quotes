@@ -7,10 +7,12 @@ import pg from 'pg'
 const {Pool} = pg
 
 const pool = new Pool({
+    host: process.env.host,
     port: process.env.port,
     database: process.env.database,
     user: process.env.user,
-    password: process.env.password
+    password: process.env.password,
+    ssl: true
 })
 
 import https from 'https'
