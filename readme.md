@@ -9,3 +9,6 @@
     - `setup/create.sql`: file to create tables
     - `generate.mjs`: script to replete tables (requires a `.env` file with database connection information)
 2. `api/`: holds the api for repleted databases (written in `php`. meant to run in `apache`.)
+
+written by Johan Jaeger.  
+instance of project [hosted on replit.com.](https://quotes.jajaeger2.repl.co)
