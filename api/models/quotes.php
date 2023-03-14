@@ -33,7 +33,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
     
                 return encode($result);
             }
@@ -58,7 +58,7 @@
                 $result = $statement->fetch();
     
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
     
                 return encode($result);
             }
@@ -83,7 +83,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
     
                 return encode($result);
             }
@@ -108,7 +108,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
     
                 return encode($result);
             }
@@ -135,7 +135,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
     
                 return encode($result);
             }
@@ -174,31 +174,36 @@
                 $categories = new Categories($this->client);
                 $authors = new Authors($this->client);
 
-                $tests = [
+                $results = [
                     "category_id" => decode($categories->get_category($category_id)),
                     "author_id" => decode($authors->get_author($author_id))
                 ];
 
-                if (is_array($tests["category_id"]) && array_key_exists("message", $tests["category_id"]))
+                $tests = [
+                    "category_id" => true,
+                    "author_id" => true
+                ];
+
+                if (is_array($results["category_id"]) && array_key_exists("message", $results["category_id"]))
                     $tests["category_id"] = false;
                 
-                if (is_array($tests["author_id"]) && array_key_exists("message", $tests["author_id"]))
+                if (is_array($results["author_id"]) && array_key_exists("message", $results["author_id"]))
                     $tests["author_id"] = false;
 
                 /* if both identifiers were wrong. */
 
                 if (!$tests["category_id"] && !$tests["author_id"])
-                    return encode(["message" => "category_id and author_id not found"]);
+                    return encode(["message" => "category_id and author_id Not Found"]);
                 
                 /* if only 'category_id' wrong. */
 
                 if (!$tests["category_id"])
-                    return encode(["message" => "category_id not found"]);
+                    return encode($results["category_id"]);
                 
                 /* if only 'author_id' wrong. */
 
                 if (!$tests["author_id"])
-                    return encode(["message" => "author_id not found"]);
+                    return encode($results["author_id"]);
             }
         }
 
@@ -218,7 +223,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
 
                 return "updated quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author"] . ", " . $result["category"] . ")";
             }
@@ -243,7 +248,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "no quotes found"]);
+                    return encode(["message" => "No Quotes Found"]);
 
                 return encode($result);
             }
