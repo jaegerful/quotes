@@ -49,7 +49,7 @@
             $query = 
                 "SELECT *
                  FROM quotes
-                 WHERE author_id = :id;"
+                 WHERE author = :id;"
             ;
 
             try {
@@ -74,7 +74,7 @@
             $query = 
                 "SELECT *
                  FROM quotes
-                 WHERE category_id = :id;"
+                 WHERE category = :id;"
             ;
 
             try {
@@ -100,8 +100,8 @@
                 "SELECT *
                  FROM quotes
                  WHERE 
-                    category_id = :category AND 
-                    author_id = :author;"
+                    category = :category AND 
+                    author = :author;"
             ;
 
             try {
@@ -125,7 +125,7 @@
 
         public function post_quote($quote, $category_id, $author_id) {
             $query = 
-                "INSERT INTO quotes(quote, category_id, author_id)
+                "INSERT INTO quotes(quote, category, author)
                  VALUES (:quote, :category, :author)
                  RETURNING *;"
             ;
@@ -138,7 +138,7 @@
                 if (empty($result))
                     return encode(["message" => "category could not be created"]);
     
-                return "created quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author_id"] . ", " . $result["category_id"] . ")";
+                return "created quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author"] . ", " . $result["category"] . ")";
             }
             
             catch(PDOException) {
@@ -182,7 +182,7 @@
         public function update_quote($id, $quote, $category, $author) {
             $query = 
                 "UPDATE quotes
-                 SET quote = :quote, category_id = :category, author_id = :author
+                 SET quote = :quote, category = :category, author = :author
                  WHERE id = :id
                  RETURNING *;"
             ;
@@ -195,7 +195,7 @@
                 if (empty($result))
                     return encode(["message" => "no quotes found"]);
 
-                return "updated quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author_id"] . ", " . $result["category_id"] . ")";
+                return "updated quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author"] . ", " . $result["category"] . ")";
             }
             
             catch(PDOException $error) {

@@ -11,6 +11,6 @@ CREATE TABLE categories (
 CREATE TABLE quotes (
     id serial PRIMARY KEY,
     quote text UNIQUE NOT NULL,
-    author_id integer REFERENCES authors(id) NOT NULL,
-    category_id integer REFERENCES categories(id) NOT NULL
+    author integer REFERENCES authors(id) NOT NULL,
+    category integer REFERENCES categories(id) NOT NULL
 );

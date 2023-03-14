@@ -72,7 +72,7 @@ function generate() {
         
                 /* insert entry for quote. */
         
-                const quote = `INSERT INTO quotes(quote, author_id, category_id) VALUES ($1, $2, $3) ON CONFLICT (quote) DO NOTHING;`
+                const quote = `INSERT INTO quotes(quote, author, category) VALUES ($1, $2, $3) ON CONFLICT (quote) DO NOTHING;`
         
                 try {
                     await pool.query(quote, [data.body, identifiers.author, identifiers.category])
@@ -113,7 +113,7 @@ async function batch(amount) {
 
 /* generate 'amount' entries. */
 
-const amount = 30
+const amount = 45
 
 batch(amount).then(count => 
     console.log(`\nbatch complete.\ninsertions made: ${count}.\n`)
