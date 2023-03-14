@@ -23,7 +23,7 @@
 
         public function get_quotes() {
             $query = 
-                "SELECT id, quote, author_id as 'author', category_id as 'category'
+                "SELECT id, quote, author_id as \"author\", category_id as \"category\"
                  FROM quotes;"
             ;
 
@@ -47,7 +47,7 @@
 
         public function get_quote($id) {
             $query = 
-                "SELECT id, quote, author_id as 'author', category_id as 'category'
+                "SELECT id, quote, author_id as \"author\", category_id as \"category\"
                  FROM quotes
                  WHERE id = :id;"
             ;
@@ -72,7 +72,7 @@
 
         public function get_quotes_by_author($author_id) {
             $query = 
-                "SELECT id, quote, author_id as 'author', category_id as 'category'
+                "SELECT id, quote, author_id as \"author\", category_id as \"category\"
                  FROM quotes
                  WHERE author_id = :id;"
             ;
@@ -97,7 +97,7 @@
 
         public function get_quotes_by_category($category_id) {
             $query = 
-                "SELECT id, quote, author_id as 'author', category_id as 'category'
+                "SELECT id, quote, author_id as \"author\", category_id as \"category\"
                  FROM quotes
                  WHERE category_id = :id;"
             ;
