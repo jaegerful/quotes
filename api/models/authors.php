@@ -103,7 +103,7 @@
                 if (empty($result))
                     return encode(["message" => "author_id Not Found"]);
 
-                return "updated author (" . $result["id"] . ", " . $result["author"] . ")";
+                return encode($result);
             }
             
             catch(PDOException $error) {

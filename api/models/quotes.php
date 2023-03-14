@@ -225,7 +225,7 @@
                 if (empty($result))
                     return encode(["message" => "No Quotes Found"]);
 
-                return "updated quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author"] . ", " . $result["category"] . ")";
+                return encode($result);
             }
             
             catch(PDOException $error) {
