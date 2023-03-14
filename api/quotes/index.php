@@ -25,6 +25,17 @@
 
     if ($method === "GET") {
 
+        /* if 'id' query parameter provided. */
+
+        if (array_key_exists("id", $_GET)) {
+            $id = $_GET["id"];
+
+            $result = $quotes->get_quote($id);
+
+            echo $result;
+            exit();    
+        }
+
         /* if 'categoryId' and 'authorId' query parameters provided. */
 
         if (array_key_exists("categoryId", $_GET) && array_key_exists("authorId", $_GET)) {

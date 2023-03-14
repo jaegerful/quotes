@@ -43,6 +43,31 @@
             }
         }
 
+        /* get quote. */
+
+        public function get_quote($id) {
+            $query = 
+                "SELECT *
+                 FROM quotes
+                 WHERE id = :id;"
+            ;
+
+            try {
+                $statement = $this->client->connection->prepare($query);
+                $statement->execute(['id' => $id]);
+                $result = $statement->fetch();
+    
+                if (empty($result))
+                    return encode(["message" => "no quotes found"]);
+    
+                return encode($result);
+            }
+
+            catch(PDOException $error) {
+                return encode($error);
+            }
+        }
+
         /* get quotes by a specific author. */
 
         public function get_quotes_by_author($id) {
