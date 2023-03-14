@@ -77,7 +77,7 @@
                 if (empty($result))
                     return encode(["message" => "category could not be created"]);
     
-                return "created category (" . $result["id"] . ", " . $result["category"] . ")";
+                return encode($result);
             }
             
             catch(PDOException $error) {

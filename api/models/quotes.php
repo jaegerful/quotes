@@ -161,9 +161,9 @@
                 $result = $statement->fetch();
     
                 if (empty($result))
-                    return encode(["message" => "category could not be created"]);
+                    return encode(["message" => "quote could not be created"]);
     
-                return "created quote (" . $result["id"] . ", " . $result["quote"] . ", " . $result["author"] . ", " . $result["category"] . ")";
+                return encode($result);
             }
             
             catch(PDOException) {
