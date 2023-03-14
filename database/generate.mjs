@@ -12,7 +12,7 @@ const pool = new Pool({
     database: process.env.database,
     user: process.env.user,
     password: process.env.password,
-    /* ssl: true */
+    ssl: true
 })
 
 import https from 'https'
