@@ -12,7 +12,7 @@ const pool = new Pool({
     database: process.env.database,
     user: process.env.user,
     password: process.env.password,
-    ssl: true
+    /* ssl: true */
 })
 
 import https from 'https'
@@ -35,7 +35,7 @@ function generate() {
         
                 /* if quote missing data. */
         
-                if (data?.tags.length === 0 || !data.author || !data.body) {
+                if (data?.tags.length === 0 || !data?.author || !data?.body) {
                     reject('skipped invalid quote.')
                     return
                 }
@@ -72,7 +72,7 @@ function generate() {
         
                 /* insert entry for quote. */
         
-                const quote = `INSERT INTO quotes(quote, author, category) VALUES ($1, $2, $3) ON CONFLICT (quote) DO NOTHING;`
+                const quote = `INSERT INTO quotes(quote, author_id, category_id) VALUES ($1, $2, $3) ON CONFLICT (quote) DO NOTHING;`
         
                 try {
                     await pool.query(quote, [data.body, identifiers.author, identifiers.category])
