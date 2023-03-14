@@ -25,7 +25,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "categories not found"]);
+                    return encode(["message" => "categories Not Found"]);
     
                 return encode($result);
             }
@@ -50,7 +50,7 @@
                 $result = $statement->fetch();
     
                 if (empty($result))
-                    return encode(["message" => "category_id not found"]);
+                    return encode(["message" => "category_id Not Found"]);
     
                 return encode($result);
             }
@@ -101,7 +101,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "category_id not found"]);
+                    return encode(["message" => "category_id Not Found"]);
 
                 return encode($result);
             }
@@ -126,7 +126,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "category_id not found"]);
+                    return encode(["message" => "category_id Not Found"]);
 
                 return encode($result);
             }

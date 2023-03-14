@@ -25,7 +25,7 @@
                 $result = $statement->fetchAll();
     
                 if (empty($result))
-                    return encode(["message" => "authors not found"]);
+                    return encode(["message" => "authors Not Found"]);
     
                 return encode($result);
             }
@@ -50,7 +50,7 @@
                 $result = $statement->fetch();
     
                 if (empty($result))
-                    return encode(["message" => "author_id not found"]);
+                    return encode(["message" => "author_id Not Found"]);
     
                 return encode($result);
             }
@@ -101,7 +101,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "author_id not found"]);
+                    return encode(["message" => "author_id Not Found"]);
 
                 return "updated author (" . $result["id"] . ", " . $result["author"] . ")";
             }
@@ -126,7 +126,7 @@
                 $result = $statement->fetch();
 
                 if (empty($result))
-                    return encode(["message" => "author_id not found"]);
+                    return encode(["message" => "author_id Not Found"]);
 
                 return encode($result);
             }

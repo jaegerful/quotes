@@ -53,7 +53,7 @@
         /* if request does not provide name for new author. */
 
         if (!array_key_exists("author", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -73,7 +73,7 @@
         /* if request does not provide new name for author. */
         
         if (!array_key_exists("author", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -96,7 +96,7 @@
         /* if request does not provide identifier for author. */
 
         if (!array_key_exists("id", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }

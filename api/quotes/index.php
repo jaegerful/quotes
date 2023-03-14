@@ -85,7 +85,7 @@
         /* if request does not provide quote, category, or author. */
 
         if (!array_key_exists("quote", $body) || !array_key_exists("categoryId", $body) || !array_key_exists("authorId", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -108,7 +108,7 @@
         /* if request does not provide quote, category, and author. */
         
         if (!array_key_exists("quote", $body) || !array_key_exists("categoryId", $body) || !array_key_exists("authorId", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -133,7 +133,7 @@
         /* if request does not provide identifier for author. */
 
         if (!array_key_exists("id", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }

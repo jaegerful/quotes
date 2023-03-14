@@ -53,7 +53,7 @@
         /* if request does not provide name for new category. */
 
         if (!array_key_exists("category", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -73,7 +73,7 @@
         /* if request does not provide new name for category. */
         
         if (!array_key_exists("category", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
@@ -96,7 +96,7 @@
         /* if request does not provide identifier for category. */
 
         if (!array_key_exists("id", $body)) {
-            $result = encode(["message" => "missing required parameters"]);
+            $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
         }
