@@ -23,7 +23,7 @@
 
         public function get_quotes() {
             $query = 
-                "SELECT *
+                "SELECT id, quote, author_id as 'author', category_id as 'category'
                  FROM quotes;"
             ;
 
@@ -47,7 +47,7 @@
 
         public function get_quote($id) {
             $query = 
-                "SELECT *
+                "SELECT id, quote, author_id as 'author', category_id as 'category'
                  FROM quotes
                  WHERE id = :id;"
             ;
@@ -72,9 +72,9 @@
 
         public function get_quotes_by_author($author_id) {
             $query = 
-                "SELECT *
+                "SELECT id, quote, author_id as 'author', category_id as 'category'
                  FROM quotes
-                 WHERE author = :id;"
+                 WHERE author_id = :id;"
             ;
 
             try {
@@ -97,9 +97,9 @@
 
         public function get_quotes_by_category($category_id) {
             $query = 
-                "SELECT *
+                "SELECT id, quote, author_id as 'author', category_id as 'category'
                  FROM quotes
-                 WHERE category = :id;"
+                 WHERE category_id = :id;"
             ;
 
             try {
@@ -125,8 +125,8 @@
                 "SELECT *
                  FROM quotes
                  WHERE 
-                    category = :category AND 
-                    author = :author;"
+                    category_id = :category AND 
+                    author_id = :author;"
             ;
 
             try {
@@ -189,7 +189,7 @@
 
         public function post_quote($quote, $category_id, $author_id) {
             $query = 
-                "INSERT INTO quotes(quote, category, author)
+                "INSERT INTO quotes(quote, category_id, author_id)
                  VALUES (:quote, :category, :author)
                  RETURNING *;"
             ;
@@ -219,7 +219,7 @@
         public function update_quote($id, $quote, $category_id, $author_id) {
             $query = 
                 "UPDATE quotes
-                 SET quote = :quote, category = :category, author = :author
+                 SET quote = :quote, category_id = :category, author_id = :author
                  WHERE id = :id
                  RETURNING *;"
             ;
