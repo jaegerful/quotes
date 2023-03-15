@@ -122,7 +122,7 @@
 
         public function get_quotes_by_category_and_author($category_id, $author_id) {
             $query = 
-                "SELECT *
+                "SELECT id, quote, author_id as \"author\", category_id as \"category\"
                  FROM quotes
                  WHERE 
                     category_id = :category AND 
