@@ -36,32 +36,32 @@
             exit();    
         }
 
-        /* if 'categoryId' and 'authorId' query parameters provided. */
+        /* if 'category_id' and 'author_id' query parameters provided. */
 
-        if (array_key_exists("categoryId", $_GET) && array_key_exists("authorId", $_GET)) {
-            $category = $_GET["categoryId"];
-            $author = $_GET["authorId"];
+        if (array_key_exists("category_id", $_GET) && array_key_exists("author_id", $_GET)) {
+            $category_id = $_GET["category_id"];
+            $author_id = $_GET["author_id"];
 
-            $result = $quotes->get_quotes_by_category_and_author($category, $author);
+            $result = $quotes->get_quotes_by_category_and_author($category_id, $author_id);
 
             echo $result;
             exit();    
         }
         
-        /* if 'categoryId' query parameter was provided. */
+        /* if 'category_id query parameter was provided. */
         
-        if (array_key_exists("categoryId", $_GET)) {
-            $id = $_GET["categoryId"];
-            $result = $quotes->get_quotes_by_category($id);
+        if (array_key_exists("category_id", $_GET)) {
+            $category_id = $_GET["category_id"];
+            $result = $quotes->get_quotes_by_category($category_id);
             echo $result;
             exit();    
         }
 
-        /* if 'authorId' query parameter was provided. */
+        /* if 'author_id' query parameter was provided. */
 
-        if (array_key_exists("authorId", $_GET)) {
-            $id = $_GET["authorId"];
-            $result = $quotes->get_quotes_by_author($id);
+        if (array_key_exists("author_id", $_GET)) {
+            $author_id = $_GET["author_id"];
+            $result = $quotes->get_quotes_by_author($author_id);
             echo $result;
             exit();    
         }
@@ -84,7 +84,7 @@
 
         /* if request does not provide quote, category, or author. */
 
-        if (!array_key_exists("quote", $body) || !array_key_exists("categoryId", $body) || !array_key_exists("authorId", $body)) {
+        if (!array_key_exists("quote", $body) || !array_key_exists("category_id", $body) || !array_key_exists("author_id", $body)) {
             $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
@@ -93,10 +93,10 @@
         /* otherwise, create quote. */
 
         $quote = $body["quote"];
-        $category = $body["categoryId"];
-        $author = $body["authorId"];
+        $category_id = $body["category_id"];
+        $author_id = $body["author_id"];
 
-        $result = $quotes->post_quote($quote, $category, $author);
+        $result = $quotes->post_quote($quote, $category_id, $author_id);
         echo $result;
         exit();
     }
@@ -107,7 +107,7 @@
 
         /* if request does not provide quote, category, and author. */
         
-        if (!array_key_exists("quote", $body) || !array_key_exists("categoryId", $body) || !array_key_exists("authorId", $body)) {
+        if (!array_key_exists("quote", $body) || !array_key_exists("category_id", $body) || !array_key_exists("author_id", $body)) {
             $result = encode(["message" => "Missing Required Parameters"]);
             echo $result;
             exit();
@@ -117,10 +117,10 @@
 
         $id = $body["id"];
         $quote = $body["quote"];
-        $category = $body["categoryId"];
-        $author = $body["authorId"];
+        $category_id = $body["category_id"];
+        $author_id = $body["author_id"];
 
-        $result = $quotes->update_quote($id, $quote, $category, $author);
+        $result = $quotes->update_quote($id, $quote, $category_id, $author_id);
         echo $result;
 
         exit();
